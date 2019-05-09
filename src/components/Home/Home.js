@@ -1,10 +1,13 @@
 import React from "react";
 
-export const Home = () => {
+const Home = () => {
   return (
-    <div className="home-container">
-        HOME
-        <div className="image-container" />
+    <div>
+      <h1>
+        HOME PAGE
+      </h1>
     </div>
   );
 }
+
+export { Home };

@@ -1,46 +1,20 @@
-import React, { Component } from 'react';
-import AppBar from "@material-ui/core/AppBar";
-import { Menu, Toolbar, Typography, IconButton } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import MenuItem from "@material-ui/core/MenuItem"
+import React from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { NavBar, Home, About, Contact } from "./components";
 
-class App extends Component {
-  state = {
-    anchorEl: null
-  }
-
-  handleClick = e => {
-    this.setState({
-      anchorEl: e.currentTarget
-    })
-  }
-
-  handleClose = () => {
-    this.setState({
-      anchorEl: null
-    })
-  }
-
-  render() {
-    const { anchorEl } = this.state;
-
-    return (
-      <AppBar>
-          <Toolbar>
-            <Typography variant="h6" color="inherit">
-              <IconButton color="inherit" aria-haspopup="true" onClick={this.handleClick}>
-                <MenuIcon aria-owns={anchorEl ? "menu" : undefined} />
-              </IconButton>
-              <Menu id="menu" open={Boolean(anchorEl)} onClose={this.handleClose}>
-                <MenuItem onClick={this.handleClose} > Home </MenuItem>
-                <MenuItem onClick={this.handleClose} > About </MenuItem>
-                <MenuItem onClick={this.handleClose} > Contact </MenuItem>
-              </Menu>
-            </Typography>
-          </Toolbar>
-      </AppBar>
-    );
-  }
+const App = () => {
+  return (
+    <BrowserRouter>
+      <>
+        <NavBar />
+        <Switch>
+          <Route path="/" component={Home} exact={true} />
+          <Route path="/About" component={About} />
+          <Route path="/ContactUs" component={Contact} />
+        </Switch>
+      </>
+    </BrowserRouter>
+  )
 }
 
 export default App;

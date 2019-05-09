@@ -1,9 +1,11 @@
 import React from "react";
 
-export const About = () => {
-    return (
-      <div>
-        ABOUT
-      </div>
-    );
-}
+const About = () => (
+    <div>
+      <h1>
+        ABOUT PAGE
+        </h1>
+    </div>
+)
+
+export { About };
